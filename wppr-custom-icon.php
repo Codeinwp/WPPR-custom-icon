@@ -2,7 +2,7 @@
 /*
 Plugin Name: WPPR Custom Icon
 Description: This add-on add a custom icon functionality to your WP Product Review plugin
-Version: 1.0.3
+Version: 1.0.4
 Author: Themeisle
 Author URI:  https://themeisle.com/
 Plugin URI: https://themeisle.com/plugins/WPPR-custom-icon/
