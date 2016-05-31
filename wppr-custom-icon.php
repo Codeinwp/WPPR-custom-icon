@@ -16,6 +16,7 @@ Domain Path: /languages
 */
 
 define("WPPR_CUSTOM_ICON_VERSION",'1.1.0');
+define("WPPR_CUSTOM_ICON_PATH", realpath(dirname(__FILE__)));
 
 
 function wppr_ci_custom_bar_icon() {
@@ -26,3 +27,11 @@ function wppr_ci_custom_bar_icon() {
 }
 
 add_action('admin_enqueue_scripts', 'wppr_ci_custom_bar_icon');
+
+
+// Added by Ash/Upwork
+function wppr_ci_load_dependencies(){
+    require_once WPPR_CUSTOM_ICON_PATH . "/lib/dependencies/tgm-activation.php";
+}
+add_action('plugins_loaded', 'wppr_ci_load_dependencies');
+// Added by Ash/Upwork
