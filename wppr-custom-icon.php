@@ -2,7 +2,7 @@
 /*
 Plugin Name: WPPR Custom Icon
 Description: This add-on add a custom icon functionality to your WP Product Review plugin
-Version: 1.1.0
+Version: 1.1.1
 Author: Themeisle
 Author URI:  https://themeisle.com/
 Plugin URI: https://themeisle.com/plugins/WPPR-custom-icon/
@@ -15,14 +15,21 @@ Text Domain: cwppos
 Domain Path: /languages
 */
 
-define("WPPR_CUSTOM_ICON_VERSION",'1.1.0');
+define("WPPR_CUSTOM_ICON_VERSION",'1.1.1');
+define("WPPR_CUSTOM_ICON_PATH", realpath(dirname(__FILE__)));
 
 
 function wppr_ci_custom_bar_icon() {
 
     wp_enqueue_script("cwp-custom-bar-icon", plugins_url('custom-bar-icon.js', __FILE__), false, WPPR_CUSTOM_ICON_VERSION, "all");
-     wp_enqueue_style("font-awesome-cdn", "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+    wp_enqueue_style("font-awesome-cdn", "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
 }
 
 add_action('admin_enqueue_scripts', 'wppr_ci_custom_bar_icon');
+
+
+function wppr_ci_load_dependencies(){
+    require_once WPPR_CUSTOM_ICON_PATH . "/lib/dependencies/tgm-activation.php";
+}
+add_action('plugins_loaded', 'wppr_ci_load_dependencies');
